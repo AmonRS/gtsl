@@ -1,5 +1,5 @@
 
-tempo = 60
+tempo = 100
 
 tuning = standard
 
@@ -8,14 +8,22 @@ capo = 0
 
 
 stream gt1 () {
-    note (3,5)
-    note (1,7)
-    chord (D,major)
-    note (4,7)
-    note (2,6)
-    chord (G,major)
-    chord (C,major)
-    note (5,2)
+    note(3,0)
+    note(3,0)
+    note(2,3)
+    note(2,3)
+    note(1,0)
+    note(1,0)
+    note(2,3)
+    note(2,3)
+    
+    note(2,1)
+    note(2,1)
+    note(2,0)
+    note(2,0)
+    note(3,2)
+    note(3,2)
+    note(3,0)
 }
 
 

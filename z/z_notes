@@ -50,3 +50,23 @@ midi numbers:
 
 
 
+
+# for i, pitch in enumerate(degrees):
+#     MyMIDI.addNote(track, channel, pitch, time + i, duration, volume)
+
+
+
+
+
+
+
+
+
+note (3,5)
+note (1,7)
+chord (D,major)
+note (4,7)
+note (2,6)
+chord (G,major)
+chord (C,major)
+note (5,2)

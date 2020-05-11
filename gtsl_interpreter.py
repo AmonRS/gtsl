@@ -1,5 +1,8 @@
 from midiutil import MIDIFile
+# from midi2audio import FluidSynth
 import pprint
+import pygame
+# import subprocess
 
 import gtsl_scanner
 import gtsl_parser
@@ -22,22 +25,22 @@ token_list = gtsl_scanner.get_tokens( input_string=gtsl_scanner.read_file('examp
 pprint.pprint( parse_data )
 # print( symbol_table )
 # print( parsed_tokens )
+pprint.pprint(gtsl_stl.tunings[parse_data['tuning']])
 
-
-print( parse_data['streams']['gt1'] )
-raise Exception('gg')
-
-
+if parse_data['number_of_tracks'] == 0: raise Exception ('no streams/tracks. not going to create midi file.')
 
 
 
-# degrees  = [60, 62, 64, 65, 67, 69, 71, 72]  # MIDI note number
 
+
+# MIDI
 
 duration = 1                                                    # In beats , for each of the notes
 channel  = 0                                                    # map 1 channel to 1 instrument each ?
 volume = 100                                                    # 0-127, 127 being full volume, as per the MIDI standard
 tempo = parse_data['tempo']                                     # In BPM
+strings = gtsl_stl.tunings[parse_data['tuning']]
+capo = parse_data['capo']
 
 # create midi object
 number_of_tracks = parse_data['number_of_tracks']
@@ -45,6 +48,7 @@ MyMIDI = MIDIFile( number_of_tracks )                           # One track, def
 
 track = 0                                                       # channel can have multiple tracks
 
+# for each stream/track
 for stream in list(parse_data['streams'].keys()):
     time = 0                                                    # In beats  ( quarter notes )
 
@@ -58,14 +62,13 @@ for stream in list(parse_data['streams'].keys()):
     for note_chord in parse_data['streams'][stream]:
 
         if note_chord[0] == 'note':
-            # note
             string = note_chord[1]
-            fret = note_chord[2] + capo
+            fret = note_chord[2]
+            pitch = strings[string]['midipitch'] + capo + fret
 
-            pass
+            MyMIDI.addNote( track, channel, pitch, time, duration, volume)
 
         elif note_chord[0] == 'chord':
-            # chord
             chord = note_chord[1]
             chord_type = note_chord[2]
             pass
@@ -76,19 +79,33 @@ for stream in list(parse_data['streams'].keys()):
 
 
 
-# for i, pitch in enumerate(degrees):
-#     MyMIDI.addNote(track, channel, pitch, time + i, duration, volume)
+midi_file_name = 'mymidifile.midi'
 
+# write to midi file
 
-
-pitch = 60  # MIDI note number
-MyMIDI.addNote( track, channel, pitch, time, duration, volume )
-
-time  = 1
-pitch = 61
-MyMIDI.addNote( track, channel, pitch, time, duration, volume )
-
-
-
-with open("mymidifile.midi", 'wb') as output_file:
+with open(midi_file_name, 'wb') as output_file:
     MyMIDI.writeFile(output_file)
+
+
+
+# play midi file
+pygame.init()
+pygame.mixer.music.load(midi_file_name)
+pygame.mixer.music.play()
+while pygame.mixer.music.get_busy():    # wait for midi file to finish playing
+    pygame.time.wait(1000)
+
+
+
+
+
+# # synthesize midi to audio
+
+# output_path = ''
+# audio_file_name = 'midioutput.wav'
+
+# # fs = FluidSynth()
+# # fs.midi_to_audio(midi_file_name, audio_file_name)
+
+# command = 'timidity\\timidity ' + midi_file_name + ' -Ow -o ' + audio_file_name
+# subprocess.Popen(command)

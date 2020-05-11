@@ -1,0 +1,9 @@
+# code -> midi
+pip install midiutil
+
+
+# midi -> audio
+pip install midi2audio
+fluidsynth
+
+
