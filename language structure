@@ -1,0 +1,14 @@
+STRUCTURE :
+
+tempo = ...
+tuning = ...    [ optional , default = standard ]
+capo = ...      [ optional , default = 0 ]
+
+stream <stream_name> ():
+    note ()
+    notes ()
+    chord ()
+
+add_stream (<stream_name>)
+
+compose ()

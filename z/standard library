@@ -1,0 +1,47 @@
+* GTSL *
+
+.gtsl : file extension
+
+
+
+tempo = ...
+    144 or some other number
+
+tuning = ...    [ optional , default = standard ]
+    standard
+    ebgdae
+
+capo = ...      [ optional , default = 0 ]
+
+
+
+
+note() :
+    string =
+        ...
+    fret =
+        ...
+    duration =      [ optional , default = 1 ]
+        ...
+
+
+
+
+
+notes() :
+    ... ???
+
+
+
+
+
+chord() :
+    note =
+        C , C# , Db , D , D# , Eb , E , F , F# , Gb , G , G# , Ab , A , A# , Bb , B
+    type =
+        major
+        minor
+
+    duration =      [ optional , default = 1 ]
+        ...
+
