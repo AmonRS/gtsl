@@ -15,13 +15,28 @@ tunings = {
 strings = {
     1 : {
         'note': 6,
-        'midipitch': '',
+        'midipitch': 64,
     },
-    2 : 16,
-    3 : 10,
-    4 : 3,
-    5 : 13,
-    6 : 6,
+    2 : {
+        'note': 16,
+        'midipitch': 59,
+    },
+    3 : {
+        'note': 10,
+        'midipitch': 64,
+    },
+    4 : {
+        'note': 3,
+        'midipitch': 64,
+    },
+    5 : {
+        'note': 13,
+        'midipitch': 64,
+    },
+    6 : {
+        'note': 6,
+        'midipitch': 64,
+    }
 }
 
 

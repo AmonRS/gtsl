@@ -37,8 +37,7 @@ raise Exception('gg')
 duration = 1                                                    # In beats , for each of the notes
 channel  = 0                                                    # map 1 channel to 1 instrument each ?
 volume = 100                                                    # 0-127, 127 being full volume, as per the MIDI standard
-
-# time = 0                                                      # In beats  ( quarter notes )
+tempo = parse_data['tempo']                                     # In BPM
 
 # create midi object
 number_of_tracks = parse_data['number_of_tracks']
@@ -50,19 +49,25 @@ for stream in list(parse_data['streams'].keys()):
     time = 0                                                    # In beats  ( quarter notes )
 
     # add track name
-    MyMIDI.addTrackName(track, time, stream)
+    MyMIDI.addTrackName( track, time, stream )
 
     # add tempo
-    tempo = symbol_table['tempo']                               # In BPM
     MyMIDI.addTempo( track, time, tempo )
     
     # add notes and chords
     for note_chord in parse_data['streams'][stream]:
+
         if note_chord[0] == 'note':
             # note
+            string = note_chord[1]
+            fret = note_chord[2] + capo
+
             pass
+
         elif note_chord[0] == 'chord':
             # chord
+            chord = note_chord[1]
+            chord_type = note_chord[2]
             pass
 
         time += duration

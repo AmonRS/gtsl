@@ -14,18 +14,6 @@ interpreter
 
 
 
-
-
-
-
-tracks vs. channels:
-    record the left and right hands of a complex piano part separately, on different tracks.
-    Assign them to the same MIDI Channel and you’ve still got the hands’ MIDI data separate but they are both playing on the same piano.
-
-
-
-
-
 -> midi
     ...
     https://github.com/kroger/pyknon ???
@@ -38,3 +26,27 @@ midi -> audio
 
 soundfont:
     https://github.com/FluidSynth/fluidsynth/blob/master/sf2/COPYRIGHT.txt
+
+
+
+
+
+
+
+
+
+
+
+tracks vs. channels:
+    record the left and right hands of a complex piano part separately, on different tracks.
+    Assign them to the same MIDI Channel and you’ve still got the hands’ MIDI data separate but they are both playing on the same piano.
+
+
+
+
+midi numbers:
+    https://www.inspiredacoustics.com/en/MIDI_note_numbers_and_center_frequencies
+
+
+
+
