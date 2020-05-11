@@ -15,8 +15,7 @@ stream gt1 () {
     note(1,0)
     note(1,0)
     note(2,3)
-    note(2,3)
-    
+    skip
     note(2,1)
     note(2,1)
     note(2,0)

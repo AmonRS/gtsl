@@ -1,5 +1,5 @@
 
-keywords = ['note', 'notes', 'chord', 'tempo', 'tuning', 'capo', 'stream', 'add_stream', 'compose']        # 'compose' has to be the last word in this list for the parser to wprk properly ¯\_(ツ)_/¯
+keywords = ['note', 'notes', 'chord', 'skip', 'tempo', 'tuning', 'capo', 'stream', 'add_stream', 'compose']        # 'compose' has to be the last word in this list for the parser to wprk properly ¯\_(ツ)_/¯
 
 
 

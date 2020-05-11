@@ -73,6 +73,9 @@ for stream in list(parse_data['streams'].keys()):
             chord_type = note_chord[2]
             pass
 
+        elif note_chord[0] == 'skip':
+            pass
+
         time += duration
 
     track += 1

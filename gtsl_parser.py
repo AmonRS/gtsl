@@ -118,12 +118,19 @@ def chord( stream_name ):
     # add chord as belonging to stream
     parse_data['streams'][stream_name].append(['chord',chord,chord_type])
 
+def skip( stream_name ):
+    match('skip')
+    parse_data['streams'][stream_name].append(['skip'])
+
 def notes_chords( stream_name ):
     if input_token() == 'note':
         note( stream_name )
         notes_chords( stream_name )
     elif input_token() == 'chord':
         chord( stream_name )
+        notes_chords( stream_name )
+    elif input_token() == 'skip':
+        skip( stream_name )
         notes_chords( stream_name )
     elif input_token() == '}':
         pass

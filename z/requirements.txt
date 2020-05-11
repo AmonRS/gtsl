@@ -2,8 +2,14 @@
 pip install midiutil
 
 
-# midi -> audio
-pip install midi2audio
-fluidsynth
+
+# play midi file
+pip install pygame
+
+
+
+# # midi -> audio
+# pip install midi2audio
+# fluidsynth
 
 
