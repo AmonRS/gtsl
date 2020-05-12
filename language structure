@@ -8,6 +8,7 @@ stream <stream_name> ():
     note ()
     notes ()
     chord ()
+    skip
 
 add_stream (<stream_name>)
 

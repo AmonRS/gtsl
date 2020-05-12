@@ -11,21 +11,21 @@ notes = [ 'C' , 'C#' , 'Db' , 'D' , 'D#' , 'Eb' , 'E' , 'F' , 'F#' , 'Gb' , 'G' 
 tunings = {
 
     'standard' : {
-        1 : {'midipitch': 64,},     # e
-        2 : {'midipitch': 59,},     # b
-        3 : {'midipitch': 55,},     # g
-        4 : {'midipitch': 50,},     # d
-        5 : {'midipitch': 45,},     # A
-        6 : {'midipitch': 40,},     # E
+        1 : 64,     # e
+        2 : 59,     # b
+        3 : 55,     # g
+        4 : 50,     # d
+        5 : 45,     # A
+        6 : 40,     # E
     },
 
     'ebgdae' : {
-        1 : {'midipitch': 64,},
-        2 : {'midipitch': 59,},
-        3 : {'midipitch': 55,},
-        4 : {'midipitch': 50,},
-        5 : {'midipitch': 45,},
-        6 : {'midipitch': 40,},
+        1 : 64,     # string : midipitch
+        2 : 59,
+        3 : 55,
+        4 : 50,
+        5 : 45,
+        6 : 40,
     },
 }
 

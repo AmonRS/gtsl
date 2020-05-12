@@ -14,7 +14,9 @@ import gtsl_stl
 
 # SCANNER
 
-token_list = gtsl_scanner.get_tokens( input_string=gtsl_scanner.read_file('example.gtsl') )
+gtsl_file_name = 'example.gtsl'
+
+token_list = gtsl_scanner.get_tokens( input_string=gtsl_scanner.read_file(gtsl_file_name) )
 # print( token_list )
 
 
@@ -64,7 +66,7 @@ for stream in list(parse_data['streams'].keys()):
         if note_chord[0] == 'note':
             string = note_chord[1]
             fret = note_chord[2]
-            pitch = strings[string]['midipitch'] + capo + fret
+            pitch = strings[string] + capo + fret
 
             MyMIDI.addNote( track, channel, pitch, time, duration, volume)
 
@@ -82,9 +84,9 @@ for stream in list(parse_data['streams'].keys()):
 
 
 
-midi_file_name = 'mymidifile.midi'
-
 # write to midi file
+
+midi_file_name = gtsl_file_name.split('.')[0] + '.midi'
 
 with open(midi_file_name, 'wb') as output_file:
     MyMIDI.writeFile(output_file)
